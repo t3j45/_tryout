@@ -28,8 +28,6 @@ for case in test_cases:
 	final = ''
 	case = case.replace('\n','')
 	words = ['']
-	final = getwords(case,words)
-	output = ''
-	for w in sorted(final):
-		output = output + w + ','
-	print output[:-1]
+	final = sorted(getwords(case,words))
+	print final
+	
