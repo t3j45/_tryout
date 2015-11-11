@@ -102,6 +102,7 @@ int main() {
    for (std::string s : arr)
       t.push(s.c_str());
 
+   // Insert new data at random location in the vector, for testing
    std::srand(time(0));
    auto it = arr.begin();
 
