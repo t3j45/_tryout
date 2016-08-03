@@ -1,0 +1,25 @@
+[user]
+	name = Tejas Chaudhari
+	email = tejascha@gmail.com
+[credential]
+	helper = osxkeychain
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[alias]
+    co = checkout
+    st = status
+    br = branch
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative
+# Update all repos in a folder : find . -maxdepth 1 -type d -exec sh -c '(cd {} && git pull)' ';'
