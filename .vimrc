@@ -22,13 +22,35 @@ nnoremap # #zz
 nnoremap J 7j
 nnoremap K 7k
 nnoremap <C-l> :nohlsearch<CR><C-l>
-nnoremap <C-k> :bn<CR>
-nnoremap <C-j> :bp<CR>
-nnoremap <C-w> :bd<CR>
+nnoremap <C-f> :bn<CR>
+nnoremap <C-b> :bp<CR>
+"nnoremap <C-w> :bd<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+nnoremap <C-s> :vimgrep /<cword>/gj 
+
+" Hack to get alt key working 
+set <M-b>=∫
+set <M-f>=ƒ
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
 
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+"Search for files recursively in subdirectories
+set path+=**
 
 set backspace=indent,eol,start
 set shiftwidth=4
@@ -47,6 +69,9 @@ set showmatch
 set incsearch
 set scrolloff=3
 set wildmenu
+set wildignore+=pass,HDFC,xlink
+set foldmethod=syntax
+set cursorline
 
 "CtrlP configuration
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -67,6 +92,7 @@ set laststatus=2
 
 "vim-notes configuration
 let g:notes_directories = ['~/.vim/notes']
+noremap <C-x> :SearchNotes<CR>
 
 "theme configuration
 colorscheme molokai
